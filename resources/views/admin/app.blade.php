@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+@php
+    $siteSetting = DB::table('site_settings')->first();
+@endphp
 <head>
     <meta charset="utf-8" />
     <title>Dashboard | Veloswift</title>
-    <link rel="shortcut icon" href="#">
-    <meta property="og:image" content="#"/>
+    <link rel="shortcut icon" href="{{$siteSetting? $siteSetting->favicon:''}}">
+    <meta property="og:image" content="{{$siteSetting? $siteSetting->site_preview_image:''}}"/>
     <!-- Select2 css -->
     <link href="{{asset('backend/vendor/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- Datatables css -->
@@ -87,13 +90,12 @@
 
     <div class="leftside-menu">
         <a href="{{route('dashboard')}}" class="logo logo-light">
-{{--            <span class="logo-lg">--}}
-{{--                <img src="#" alt="logo" style="height: 70px;">--}}
-{{--            </span>--}}
-{{--            <span class="logo-sm">--}}
-{{--                <img src="#" alt="small logo">--}}
-{{--            </span>--}}
-            <h1 style="color: red;">Veloswift</h1>
+            <span class="logo-lg">
+                <img src="{{asset($siteSettings? $siteSettings->site_preview_image:'' )}}" alt="logo" style="height: 70px;">
+            </span>
+            <span class="logo-sm">
+                <img src="{{asset($siteSettings? $siteSettings->site_preview_image:'' )}}" alt="small logo">
+            </span>
         </a>
 
         <div class="h-100" id="leftside-menu-container" data-simplebar>
@@ -121,6 +123,14 @@
                 </li>
 
                 <li class="side-nav-item">
+                    <a href="{{route('project.section')}}" class="side-nav-link">
+                        <i class="ri-dashboard-3-line"></i>
+                        <span> Project </span>
+                    </a>
+                </li>
+
+
+                <li class="side-nav-item">
                     <a href="{{route('client.section')}}" class="side-nav-link">
                         <i class="ri-dashboard-3-line"></i>
                         <span> Client </span>
@@ -144,15 +154,14 @@
                 <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
                         <i class="ri-pages-line"></i>
-                        <span> Test </span>
+                        <span> Setting </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <div class="collapse" id="sidebarPages">
                         <ul class="side-nav-second-level">
                             <li>
-                                <a href="#">Test</a>
+                                <a href="{{route('site.setting')}}">Site</a>
                             </li>
-
                         </ul>
                     </div>
                 </li>
@@ -211,6 +220,11 @@
 <script src="{{asset('backend/js/pages/datatable.init.js')}}"></script>
 <script src="{{asset('backend/js/pages/dashboard.js')}}"></script>
 <script src="{{asset('backend/js/app.min.js')}}"></script>
-
+<script >
+    var allEditors = document.querySelectorAll('.editor');
+    for (var i = 0; i < allEditors.length; ++i) {
+        ClassicEditor.create(allEditors[i]);
+    }
+</script>
 </body>
 </html>

@@ -43,7 +43,7 @@
                             <td>{{$key+1}}</td>
                             <td>{{$teamData->name}}</td>
                             <td>
-                                <img src="{{asset('images/team/'. $teamData->image )}}" alt="Current Image" style="max-width: 50px;">
+                                <img src="{{asset('images/team/'. $teamData->image )}}" alt="Current Image" style="height: 50px; width: 50px;">
                             </td>
                             <td>{{$teamData->email}}</td>
                             <td>{{$teamData->phone}}</td>

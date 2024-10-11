@@ -1,40 +1,30 @@
 @extends('frontend.app')
 @section('home_content')
-    <!-- Page Header Start -->
-    <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container text-center py-4">
-            <h1 class="display-3 text-white mb-3 animated slideInDown">Service</h1>
-        </div>
-    </div>
-    <!-- Page Header End -->
-
-    <!-- Service Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <p class="d-inline-block bg-secondary text-primary py-1 px-4">Services</p>
-                <h1>What We Provide</h1>
+    @include('frontend.slider')
+    <!-- Feature Start -->
+    <div class="container-fluid feature bg-light py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h4 class="text-primary">Our Service</h4>
+                <h1 class="display-4 mb-4">For VeloSwifte, here’s a refined version of the services</h1>
+                <p class="mb-0">You can highlight each service with a short description to further showcase expertise if needed! Let me know if you'd like help with that.
+                </p>
             </div>
             <div class="row g-4">
                 @foreach($service as $serviceData)
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                            <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center" style="width: 100px; height: 100px;">
-                                <img class="img-fluid" src="{{asset('images/service/'. $serviceData->image )}}" alt="">
+                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="feature-item p-4 pt-0">
+                            <div class="feature-icon p-4 mb-4">
+                                <i class="far fa-handshake fa-3x"></i>
                             </div>
-                            <div class="ps-4">
-                                <h3 class="mb-3">{{$serviceData->title}}</h3>
-                                <p>{!! Str::limit($serviceData->details, 100) !!}</p>
-                                <span class="text-primary">Choice Your Service</span>
-                            </div>
-                            <a class="btn btn-square" href=""><i class="fa fa-plus text-primary"></i></a>
+                            <h4 class="mb-4">{{$serviceData->title}}</h4>
+                            <p class="mb-4">{!! $serviceData->details !!} </p>
+                            <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
                         </div>
                     </div>
                 @endforeach
-
             </div>
         </div>
     </div>
-    <!-- Service End -->
 
 @endsection

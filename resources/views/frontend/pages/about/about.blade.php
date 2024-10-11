@@ -1,46 +1,53 @@
 @extends('frontend.app')
 @section('home_content')
-
-    <!-- Page Header Start -->
-    <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container text-center py-4">
-            <h1 class="display-3 text-white  mb-3 animated slideInDown">About</h1>
-        </div>
-    </div>
-    <!-- Page Header End -->
-
-
+    @include('frontend.slider')
     <!-- About Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
+    <div class="container-fluid bg-light about pb-5">
+        <div class="container pb-5">
             <div class="row g-5">
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="d-flex flex-column">
-                        <img class="img-fluid w-75 align-self-end" src="{{asset('frontend/img/about.png')}}" alt="">
-                        <div class="w-50 bg-secondary p-5" style="margin-top: -25%;">
-                            <h1 class=" text-primary mb-3">4 + Years</h1>
-                            <h2 class=" mb-0">Experience</h2>
-                        </div>
+                <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
+                    <div class="about-item-content bg-white rounded p-5 h-100">
+                        <h4 class="text-primary">About Our VeloSwifte</h4>
+                        <h1 class="display-4 mb-4">Delivering Agile IT Solutions, VeloSwifte Your Success</h1>
+                        <p>At VeloSwifte, we specialize in delivering innovative IT solutions that drive digital transformation. From web and mobile app development to custom websites and game creation, we combine technical expertise with a client-focused approach to bring your vision to life. Our agile processes and commitment to quality ensure fast, reliable results every time.</p>
+
+                        <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>We focus on bringing your vision to life with custom, cutting-edge solutions.</p>
+                        <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Our streamlined processes ensure fast, reliable delivery without compromising quality</p>
+                        <p class="text-dark mb-4"><i class="fa fa-check text-primary me-3"></i>We specialize in web, mobile app, and game development tailored to your needs</p>
+                        <a class="btn btn-primary rounded-pill py-3 px-5" href="#">More Information</a>
                     </div>
                 </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <p class="d-inline-block bg-secondary text-primary py-1 px-4">About Us</p>
-                    <h1 class=" mb-4">Who We Are?</h1>
-                    <p>Welcome to 13space, a cutting-edge software company on a mission to revolutionize digital solutions. At 13space, we take pride in being a dynamic team of skilled software engineers committed to delivering exceptional web, desktop, and mobile applications tailored to our clients' unique needs.</p>
-                    <p class="mb-4">Since our establishment, we've been at the forefront of innovation, partnering with a diverse range of companies and driving operational excellence for startups, emerging businesses, and established organizations, both locally and in the global freelance market.</p>
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <h3 class=" mb-3">Since 2021</h3>
-                            <p class="mb-0">At 13space, we don't just build software; we cultivate partnerships and help businesses thrive.</p>
-                        </div>
-                        <div class="col-md-6">
-                            <h3 class=" mb-3">100+ clients</h3>
-                            <p class="mb-0">Our dedicated teams evolve with our clients, providing end-to-end solutions for you.</p>
+                <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
+                    <div class="bg-white rounded p-5 h-100">
+                        <div class="row g-4 justify-content-center">
+                            <div class="col-12">
+                                <div class="rounded bg-light">
+                                    <img src="{{URL::to('frontend/img/about-1.png')}}" class="img-fluid rounded w-100" alt="">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="counter-item bg-light rounded p-3 h-100">
+                                    <div class="counter-counting">
+                                        <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">129</span>
+                                        <span class="h1 fw-bold text-primary">+</span>
+                                    </div>
+                                    <h4 class="mb-0 text-dark">Total Client</h4>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="counter-item bg-light rounded p-3 h-100">
+                                    <div class="counter-counting">
+                                        <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">99</span>
+                                        <span class="h1 fw-bold text-primary">+</span>
+                                    </div>
+                                    <h4 class="mb-0 text-dark">Successfully Done Project</h4>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- About End -->
+
 @endsection

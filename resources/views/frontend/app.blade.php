@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
+@php
+    $siteSetting = DB::table('site_settings')->first();
+@endphp
 <head>
     <meta charset="utf-8">
     <title>VeloSwifte</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <link rel="shortcut icon" href="{{$siteSetting? $siteSetting->favicon:''}}">
+    <meta property="og:image" content="{{$siteSetting? $siteSetting->site_preview_image:''}}"/>
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +35,7 @@
             <div class="col-lg-8 text-center text-lg-start mb-lg-0">
                 <div class="d-flex flex-wrap">
                     <div class="ps-3">
-                        <a href="info@veloswifte.com" class="text-muted small"><i class="fas fa-envelope text-primary me-2"></i>info@veloswifte.com</a>
+                        <a href="#" class="text-muted small"><i class="fas fa-envelope text-primary me-2"></i>{{$siteSetting->email}}</a>
                     </div>
                 </div>
             </div>
@@ -57,32 +58,31 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
             <a href="#" class="navbar-brand p-0">
-                <h1 class="text-primary mb-0">VeloSwifte</h1>
-                <!-- <img src="img/logo.png" alt="Logo"> -->
+               <span class="logo-lg">
+                <img src="{{$siteSetting->site_preview_image}}" alt="logo" style="height: 80px;">
+               </span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-0 mx-lg-auto">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="service.html" class="nav-item nav-link">Services</a>
-                    <a href="blog.html" class="nav-item nav-link">Project</a>
+                    <a href="{{ route('home') }}" class="nav-item nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
+                    <a href="{{ route('about') }}" class="nav-item nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About</a>
+                    <a href="{{ route('service') }}" class="nav-item nav-link {{ request()->routeIs('service') ? 'active' : '' }}">Services</a>
+                    <a href="{{ route('project') }}" class="nav-item nav-link {{ request()->routeIs('project') ? 'active' : '' }}">Project</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link" data-bs-toggle="dropdown">
                             <span class="dropdown-toggle">Pages</span>
                         </a>
                         <div class="dropdown-menu">
-                            <a href="team.html" class="dropdown-item">Our team</a>
-                            <a href="FAQ.html" class="dropdown-item">FAQs</a>
-                            <a href="404.html" class="dropdown-item">Career</a>
+                            <a href="#" class="dropdown-item">FAQs</a>
+                            <a href="#" class="dropdown-item">Career</a>
+                            <a href="{{ route('team') }}" class="dropdown-item {{ request()->routeIs('team') ? 'active' : '' }}">Our team</a>
                         </div>
                     </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
                     <div class="nav-btn px-3">
-                        <button class="btn-search btn btn-primary btn-md-square rounded-circle flex-shrink-0" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
-                        <a href="#" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0"> Get a Quote</a>
+                        <a href="#" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0">Contact</a>
                     </div>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                 </a>
                 <div class="d-flex flex-column ms-3">
                     <span>Call to Our Experts</span>
-                    <a href="tel:+ 0123 456 7890"><span class="text-dark">Free: +880xxxxxxxxxx</span></a>
+                    <a href="tel:+ 0123 456 7890"><span class="text-dark">Free: +88{{$siteSetting->phone}}</span></a>
                 </div>
             </div>
         </nav>
@@ -118,10 +118,9 @@
                         <div class="col-md-6 col-lg-6 col-xl-5">
                             <div class="footer-item">
                                 <a href="index.html" class="p-0">
-                                    <h3 class="text-white"><i class="fab fa-slack me-3"></i> VeloSwifte</h3>
-                                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                                  <img src="{{$siteSetting? $siteSetting->site_preview_image:''}}" style="width: 200px;" alt="Logo">
                                 </a>
-                                <p class="text-white mb-4">Dolor amet sit justo amet elitr clita ipsum elitr est.Lorem ipsum dolor sit amet, consectetur adipiscing...</p>
+                                <p class="text-white mb-4">At VeloSwifte, our team is composed of skilled professionals dedicated to delivering exceptional IT solutions. </p>
                                 <div class="footer-btn d-flex">
                                     <a class="btn btn-md-square rounded-circle me-3" href="#"><i class="fab fa-facebook-f"></i></a>
                                     <a class="btn btn-md-square rounded-circle me-3" href="#"><i class="fab fa-whatsapp"></i></a>
@@ -132,11 +131,11 @@
                         <div class="col-md-6 col-lg-6 col-xl-3">
                             <div class="footer-item">
                                 <h4 class="text-white mb-4">Useful Links</h4>
-                                <a href="#"><i class="fas fa-angle-right me-2"></i> About Us</a>
-                                <a href="#"><i class="fas fa-angle-right me-2"></i> Services</a>
-                                <a href="#"><i class="fas fa-angle-right me-2"></i> FAQ's</a>
-                                <a href="#"><i class="fas fa-angle-right me-2"></i> Project</a>
-                                <a href="#"><i class="fas fa-angle-right me-2"></i> Contact</a>
+                                <a href="{{route('about')}}"><i class="fas fa-angle-right me-2"></i> About Us</a>
+                                <a href="{{route('project')}}"><i class="fas fa-angle-right me-2"></i> Project</a>
+                                <a href="{{route('service')}}"><i class="fas fa-angle-right me-2"></i> Service</a>
+                                <a href="{{route('team')}}"><i class="fas fa-angle-right me-2"></i> Team</a>
+                                <a href="#"><i class="fas fa-angle-right me-2"></i> Contact us</a>
                             </div>
                         </div>
                     </div>
@@ -161,7 +160,7 @@
                         </div>
                         <div class="d-flex flex-column ms-3 flex-shrink-0">
                             <span>Call to Our Experts</span>
-                            <a href="tel:+ 0123 456 7890"><span class="text-white">Free: +880XXXXXXXXXX</span></a>
+                            <a href="tel:+ 0123 456 7890"><span class="text-white">Free: +88{{$siteSetting->phone}}</span></a>
                         </div>
                     </div>
                 </div>
