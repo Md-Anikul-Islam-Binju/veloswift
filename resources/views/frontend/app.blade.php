@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <div class="nav-btn px-3">
-                        <a href="#" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0">Contact</a>
+                        <a href="{{route('contact')}}" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0">Contact</a>
                     </div>
                 </div>
             </div>
@@ -135,7 +135,7 @@
                                 <a href="{{route('project')}}"><i class="fas fa-angle-right me-2"></i> Project</a>
                                 <a href="{{route('service')}}"><i class="fas fa-angle-right me-2"></i> Service</a>
                                 <a href="{{route('team')}}"><i class="fas fa-angle-right me-2"></i> Team</a>
-                                <a href="#"><i class="fas fa-angle-right me-2"></i> Contact us</a>
+                                <a href="{{route('contact')}}"><i class="fas fa-angle-right me-2"></i> Contact us</a>
                             </div>
                         </div>
                     </div>
