@@ -59,7 +59,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <a href="#" class="navbar-brand p-0">
                <span class="logo-lg">
-                <img src="{{$siteSetting->site_preview_image}}" alt="logo" style="height: 80px;">
+                <img src="{{$siteSetting->logo}}" alt="logo" style="height: 80px;">
                </span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
