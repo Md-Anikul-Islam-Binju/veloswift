@@ -94,10 +94,10 @@
     <div class="leftside-menu">
         <a href="{{route('dashboard')}}" class="logo logo-light">
             <span class="logo-lg">
-                <img src="{{asset($siteSetting? $siteSetting->site_preview_image:'' )}}" alt="logo" style="height: 70px;">
+                <img src="{{asset($siteSetting? $siteSetting->logo:'' )}}" alt="logo" style="height: 70px;">
             </span>
             <span class="logo-sm">
-                <img src="{{asset($siteSetting? $siteSetting->site_preview_image:'' )}}" alt="small logo">
+                <img src="{{asset($siteSetting? $siteSetting->logo:'' )}}" alt="small logo">
             </span>
         </a>
 
